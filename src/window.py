@@ -29,6 +29,6 @@ class Window:
         # Stop the running loop, effectively closing the window
         self.__running = False
 
-    def draw_line(self, line, fill_color):
+    def draw_line(self, line, fill_color="black"):
         # Draw a line on the canvas
         line.draw(self.__canvas, fill_color)
