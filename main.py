@@ -1,10 +1,10 @@
 # main.py
 
-from src.point import Point
-from src.line import Line
-from src.window import Window
-from src.cell import Cell
-from src.maze import Maze
+from point import Point
+from line import Line
+from window import Window
+from cell import Cell
+from maze import Maze
 
 def main():
     num_rows = 12

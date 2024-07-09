@@ -1,4 +1,4 @@
-from src.point import Point  # Import the Point class from the src.point module
+from point import Point  # Import the Point class from the src.point module
 
 class Line:
     def __init__(self, point_one, point_two):

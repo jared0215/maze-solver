@@ -1,10 +1,10 @@
-from src.cell import Cell  # Import the Cell class
+from cell import Cell  # Import the Cell class
 import random
 import time
 
 
 class Maze:
-    def __init__(self, x1, y1, num_rows, num_cols, cell_size_x, cell_size_y, win):
+    def __init__(self, x1, y1, num_rows, num_cols, cell_size_x, cell_size_y, win=None):
         # Initialize the Maze with the provided parameters
         self._cells = []  # List to hold the cells of the maze
         self._x1 = x1  # Starting x-coordinate of the maze

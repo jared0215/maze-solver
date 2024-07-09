@@ -1,6 +1,6 @@
 # src/cell.py
-from src.point import Point  # Import the Point class
-from src.line import Line  # Import the Line class
+from point import Point  # Import the Point class
+from line import Line  # Import the Line class
 
 class Cell:
     def __init__(self, win):
