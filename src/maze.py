@@ -16,6 +16,7 @@ class Maze:
         self._win = win  # Reference to the window for drawing
 
         self._create_cells()  # Create and draw the cells of the maze
+        self._break_entrance_and_exit()
 
     def _create_cells(self):
         # Create the cells of the maze and draw them
@@ -24,6 +25,7 @@ class Maze:
             for j in range(self._num_rows):
                 col_cells.append(Cell(self._win))  # Create a new cell and add it to the column
             self._cells.append(col_cells)  # Add the column of cells to the maze
+
         for i in range(self._num_cols):
             for j in range(self._num_rows):
                 self._draw_cell(i, j)  # Draw each cell
@@ -47,4 +49,10 @@ class Maze:
         # time.sleep(0.05)  # Pause for a short duration to create an animation effect
 
     def _break_entrance_and_exit(self):
-        pass
+        # Remove the top wall of the top-left cell
+        self._cells[0][0].has_top_wall = False
+        self._draw_cell(0, 0)  # Update drawing for top-left cell
+
+        # Remove the bottom wall of the bottom-right cell
+        self._cells[-1][-1].has_bottom_wall = False
+        self._draw_cell(len(self._cells) - 1, len(self._cells[0]) - 1)  # Update drawing for bottom-right cell

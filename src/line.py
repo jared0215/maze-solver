@@ -1,5 +1,3 @@
-
-
 class Line:
     def __init__(self, point_one, point_two):
         # Initialize the Line with two Point objects
