@@ -40,6 +40,9 @@ class Tests(unittest.TestCase):
             num_rows,
         )
 
+    # def test_break_entrance_and_exit(self):
+
+
 
 if __name__ == "__main__":
     unittest.main()  # Run the tests when this script is executed

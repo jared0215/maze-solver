@@ -45,3 +45,6 @@ class Maze:
             return
         self._win.redraw()  # Redraw the window to update the drawing
         # time.sleep(0.05)  # Pause for a short duration to create an animation effect
+
+    def _break_entrance_and_exit(self):
+        pass
