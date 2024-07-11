@@ -106,15 +106,20 @@ class Maze:
                 cell.visited = False
         
     def solve(self):
+        # Start solving the maze from the top-left corner (0, 0)
         return self._solve_r(0, 0)
 
     def _solve_r(self, i, j):
+        # Animate the current step of solving
         self._animate()
+        # Mark the current cell as visited
         self._cells[i][j].visited = True
 
+        # Check if the current cell is the end cell (bottom-right corner)
         if i == self._num_cols - 1 and j == self._num_rows - 1:
-            return True
-        
+            return True  # Maze solved
+
+        # Define possible directions to move: (di, dj, wall_current, wall_next)
         directions = [
             (-1, 0, 'has_left_wall', 'has_right_wall'),  # Move left
             (1, 0, 'has_right_wall', 'has_left_wall'),   # Move right
@@ -124,10 +129,12 @@ class Maze:
 
         for di, dj, wall_current, wall_next in directions:
             ni, nj = i + di, j + dj  # Calculate new indices
-            
+
+            # Check if the next cell is within bounds and not yet visited
             if 0 <= ni < self._num_cols and 0 <= nj < self._num_rows \
                     and not self._cells[ni][nj].visited:
                 
+                # Check if there is no wall between the current cell and the next cell
                 current_wall = getattr(self._cells[i][j], wall_current)
                 next_wall = getattr(self._cells[ni][nj], wall_next)
 
@@ -135,10 +142,11 @@ class Maze:
                     # Draw move from current cell to the next cell
                     self._cells[i][j].draw_move(self._cells[ni][nj])
                     
+                    # Recursively attempt to solve the maze from the next cell
                     if self._solve_r(ni, nj):
-                        return True
+                        return True  # Solution found
                     
                     # Undo the move if it didn't lead to a solution
                     self._cells[ni][nj].draw_move(self._cells[i][j], undo=True)
         
-        return False
+        return False  # No solution found from this path
