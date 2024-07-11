@@ -21,15 +21,6 @@ This project implements a graphical maze solver using Python and Tkinter. The ma
     ```bash
     cd maze-solver
     ```
-3. (Optional) Create and activate a virtual environment:
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-    ```
-4. Install the required dependencies:
-    ```bash
-    pip install -r requirements.txt
-    ```
 
 ## Usage
 
