@@ -105,3 +105,40 @@ class Maze:
             for cell in col:
                 cell.visited = False
         
+    def solve(self):
+        return self._solve_r(0, 0)
+
+    def _solve_r(self, i, j):
+        self._animate()
+        self._cells[i][j].visited = True
+
+        if i == self._num_cols - 1 and j == self._num_rows - 1:
+            return True
+        
+        directions = [
+            (-1, 0, 'has_left_wall', 'has_right_wall'),  # Move left
+            (1, 0, 'has_right_wall', 'has_left_wall'),   # Move right
+            (0, -1, 'has_top_wall', 'has_bottom_wall'),  # Move up
+            (0, 1, 'has_bottom_wall', 'has_top_wall')    # Move down
+        ]
+
+        for di, dj, wall_current, wall_next in directions:
+            ni, nj = i + di, j + dj  # Calculate new indices
+            
+            if 0 <= ni < self._num_cols and 0 <= nj < self._num_rows \
+                    and not self._cells[ni][nj].visited:
+                
+                current_wall = getattr(self._cells[i][j], wall_current)
+                next_wall = getattr(self._cells[ni][nj], wall_next)
+
+                if not current_wall and not next_wall:
+                    # Draw move from current cell to the next cell
+                    self._cells[i][j].draw_move(self._cells[ni][nj])
+                    
+                    if self._solve_r(ni, nj):
+                        return True
+                    
+                    # Undo the move if it didn't lead to a solution
+                    self._cells[ni][nj].draw_move(self._cells[i][j], undo=True)
+        
+        return False
