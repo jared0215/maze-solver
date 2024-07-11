@@ -15,6 +15,8 @@ class Cell:
         self._y2 = None  # y-coordinate of the bottom-right corner
         self._win = win  # Reference to the window for drawing
 
+        self.visited = False # Tracks which cells had theirs walls broken down
+
     def draw(self, x1, y1, x2, y2):
         # Draw the cell with walls
         self._x1 = x1
