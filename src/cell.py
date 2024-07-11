@@ -1,4 +1,3 @@
-# src/cell.py
 from point import Point  # Import the Point class
 from line import Line  # Import the Line class
 
@@ -30,6 +29,10 @@ class Cell:
         if self.has_left_wall:
             line = Line(Point(x1, y1), Point(x1, y2))
             self._win.draw_line(line)  # Draw left wall
+        else:
+            # Erase the left wall
+            erase_line = Line(Point(x1, y1), Point(x1, y2))
+            self._win.draw_line(erase_line, fill_color=bg_color)  # Erase left wall
 
         if self.has_top_wall:
             line = Line(Point(x1, y1), Point(x2, y1))
@@ -42,6 +45,10 @@ class Cell:
         if self.has_right_wall:
             line = Line(Point(x2, y1), Point(x2, y2))
             self._win.draw_line(line)  # Draw right wall
+        else:
+            # Erase the right wall
+            erase_line = Line(Point(x2, y1), Point(x2, y2))
+            self._win.draw_line(erase_line, fill_color=bg_color)  # Erase right wall
 
         if self.has_bottom_wall:
             line = Line(Point(x1, y2), Point(x2, y2))
