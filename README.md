@@ -1,21 +1,22 @@
-````
 # Maze Solver
 
 This project implements a graphical maze solver using Python and Tkinter. The maze is generated with random walls, and the solver uses a depth-first search (DFS) algorithm to find a path from the start to the end.
 
 ## Features
 
-- Random maze generation with customizable size
-- Visualization of maze generation and solving process
-- Depth-first search algorithm for solving the maze
-- Option to set a random seed for reproducibility
+-   Random maze generation with customizable size
+-   Visualization of maze generation and solving process
+-   Depth-first search algorithm for solving the maze
+-   Option to set a random seed for reproducibility
 
 ## Installation
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/jared0215/maze-solver
-````
+
+    ```bash
+    git clone https://github.com/jared0215/maze-solver
+
+    ```
 
 2. Navigate to the project directory:
     ```bash
